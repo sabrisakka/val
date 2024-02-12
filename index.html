@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5e8f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .heart {
+    color: #ff4064;
+    font-size: 100px;
+    animation: heartbeat 1s infinite alternate;
+  }
+  @keyframes heartbeat {
+    to {
+      transform: scale(1.1);
+    }
+  }
+  h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  .button {
+    padding: 12px 24px;
+    font-size: 20px;
+    background-color: #ff4064;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .button:hover {
+    background-color: #ff6b87;
+  }
+  .animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .gif {
+    width: 200px;
+    margin-top: 20px;
+  }
+  .option {
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Will You Be My Valentine?</h1>
+  <span class="heart">❤️</span>
+  <p>You are my sunshine, my only sunshine. You make me happy when skies are gray.</p>
+  <button class="button" onclick="fulfillPage()">Yes, I will!</button>
+  <div class="option" onclick="moveNoButton()">No, thanks!</div>
+</div>
+
+
+<script>
+  function fulfillPage() {
+    document.body.style.background = "#fff"; // Change background to white
+    document.querySelector('.container').innerHTML = '<h1>Hehe I knew it ❤️</h1>'; // Change container content
+  }
+
+  function moveNoButton() {
+    var noButton = document.querySelector('.option');
+    var randomX = Math.floor(Math.random() * window.innerWidth);
+    var randomY = Math.floor(Math.random() * window.innerHeight);
+    noButton.style.position = "absolute";
+    noButton.style.left = randomX + "px";
+    noButton.style.top = randomY + "px";
+  }
+</script>
+
+</body>
+</html>
